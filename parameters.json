@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "region": {
+            "value": "West US 2"
+        },
+        "servicebus_namespace_name": {
+            "value": "sb-mxdeployer-test"
+        },
+        "storageaccount_name": {
+            "value": "stmxdeployertest"
+        }
+    }
+}

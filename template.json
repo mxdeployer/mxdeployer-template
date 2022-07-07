@@ -50,8 +50,6 @@
                 "allowSharedKeyAccess": true,
                 "networkAcls": {
                     "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
                     "defaultAction": "Allow"
                 },
                 "supportsHttpsTrafficOnly": true,
@@ -125,21 +123,6 @@
             }
         },
         {
-            "type": "Microsoft.ServiceBus/namespaces/networkRuleSets",
-            "apiVersion": "2021-11-01",
-            "name": "[concat(parameters('servicebus_namespace_name'), '/default')]",
-            "location": "[parameters('region')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ServiceBus/namespaces', parameters('servicebus_namespace_name'))]"
-            ],
-            "properties": {
-                "publicNetworkAccess": "Enabled",
-                "defaultAction": "Allow",
-                "virtualNetworkRules": [],
-                "ipRules": []
-            }
-        },
-        {
             "type": "Microsoft.ServiceBus/namespaces/topics",
             "apiVersion": "2021-11-01",
             "name": "[concat(parameters('servicebus_namespace_name'), '/sbt-mxdeployer')]",
@@ -173,9 +156,6 @@
                 "tier": "Standard"
             },
             "properties": {
-                "cors": {
-                    "corsRules": []
-                },
                 "deleteRetentionPolicy": {
                     "allowPermanentDelete": false,
                     "enabled": false
@@ -204,9 +184,6 @@
                 "tier": "Standard"
             },
             "properties": {
-                "cors": {
-                    "corsRules": []
-                },
                 "shareDeleteRetentionPolicy": {
                     "enabled": false,
                     "days": 0
@@ -219,12 +196,7 @@
             "name": "[concat(parameters('storageaccount_name'), '/default')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageaccount_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
+            ]
         },
         {
             "type": "Microsoft.Storage/storageAccounts/tableServices",
@@ -232,12 +204,7 @@
             "name": "[concat(parameters('storageaccount_name'), '/default')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageaccount_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
+            ]
         },
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",

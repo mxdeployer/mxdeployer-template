@@ -15,11 +15,11 @@ This is the parameter file for the production deployment.
 
 First, create a resource group using the Azure CLI:
 
-    $> az group create --name rg-mxdeployer-prod-westus2 --location "West US 2"
+    $> az group create --name rg-mxdeployer-test-westus2 --location "West US 2"
 
 Next, create the resources within the group:
 
-    $> az deployment group create --name rg-mxdeployer-prod-westus2 --resource-group rg-mxdeployer-prod-westus2 --template-file template.json --parameters parameters.json
+    $> az deployment group create --name rg-mxdeployer-test-westus2 --resource-group rg-mxdeployer-test-westus2 --template-file template.json --parameters parameters.json
 
 It will take some time for this to run, but shouldn't take more than 30 minutes.
 
@@ -27,7 +27,7 @@ It will take some time for this to run, but shouldn't take more than 30 minutes.
 
 If you make a mistake, you can delete a resource group using the Azure CLI like this:
 
-    $> az group delete --resource-group rg-mxdeployer-prod-westus2
+    $> az group delete --resource-group rg-mxdeployer-test-westus2
 
 Please note that it will take quite some time to run, but no more than 10 minutes.
 
@@ -37,10 +37,10 @@ Please note that it will take quite some time to run, but no more than 10 minute
 
 Use the following query to retrieve the primary connection string for the service bus namespace. 
 
-    $> az servicebus namespace authorization-rule keys list --resource-group rg-mxdeployer-prod-westus2 --namespace-name sb-mxdeployer-test --name Private --query primaryConnectionString
+    $> az servicebus namespace authorization-rule keys list --resource-group rg-mxdeployer-test-westus2 --namespace-name sb-mxdeployer-test2 --name Private --query primaryConnectionString
 
-    $> az servicebus namespace authorization-rule keys list --resource-group rg-mxdeployer-prod-westus2 --namespace-name sb-mxdeployer-test --name Public --query primaryConnectionString
+    $> az servicebus namespace authorization-rule keys list --resource-group rg-mxdeployer-test-westus2 --namespace-name sb-mxdeployer-test2 --name Public --query primaryConnectionString
 
 ### Configure Storage Connection String
 
-    $> az storage account show-connection-string -g rg-mxdeployer-prod-westus2 -n stmxdeployertest --query connectionString
+    $> az storage account show-connection-string -g rg-mxdeployer-test-westus2 -n stmxdeployertest2 --query connectionString

@@ -6,10 +6,10 @@
             "value": "West US 2"
         },
         "servicebus_namespace_name": {
-            "value": "sb-mxdeployer-test"
+            "value": "sb-mxdeployer-test2"
         },
         "storageaccount_name": {
-            "value": "stmxdeployertest"
+            "value": "stmxdeployertest2"
         }
     }
 }
